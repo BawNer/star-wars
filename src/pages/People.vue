@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-between">
+  <div class="row">
     <div class="col-8">
       <q-btn to="/" label="Back" class="bg-black text-white q-ma-xs"/>
       <div class="row">
