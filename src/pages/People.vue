@@ -6,8 +6,12 @@
         <div class="col-8">
           <div class="q-pa-md">
             <q-list bordered separator style="max-width: 300px">
-              <q-item clickable v-ripple>
-                <q-item-section>Single line item</q-item-section>
+              <q-item 
+              clickable 
+              v-ripple 
+              v-for="people in peoples" 
+              :key="people.name">
+                <q-item-section>{{people.name}}</q-item-section>
               </q-item>
             </q-list>
           </div>
@@ -16,6 +20,22 @@
     </div>
   </div>
 </template>
-<script>
 
+<script>
+import {onMounted, computed} from 'vue'
+import {useStore} from 'vuex'
+
+export default {
+  setup() {
+    const store = useStore()
+    const peoples = computed(() => store.getters.getAllPeoples)
+    onMounted(() => {
+      store.dispatch('getAllPeople')
+    })
+
+    return {
+      peoples
+    }
+  },
+}
 </script>

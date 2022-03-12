@@ -1,2 +1,3 @@
-export function someMutation (/* state */) {
+export const setPeople = (state, payload) => {
+  state.people = payload
 }
